@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :name, presence: true, length: {maximum: 50}
+  has_one :profile, dependent: :destroy
+
+  #profileあれば更新、なければ作成
+  def prepare_profile
+    profile || build_profile
+  end
 end

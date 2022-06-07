@@ -4,7 +4,7 @@
     <div class="dropdown">
       <%= image_tag 'male.svg', class: 'header_avatar dropbtn' %>
       <div class="dropdown-content">
-        <a href="#">プロフィール</a>
+        <%= link_to 'プロフィール', profile_path%>
         <%= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }%>
       </div>
     </div>

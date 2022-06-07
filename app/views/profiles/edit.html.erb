@@ -1,0 +1,40 @@
+<div class="container">
+  <ul>
+    <% @profile.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+  <%= form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f| %>
+    <div>
+      <%= f.label :nickname, 'ハンドルネーム' %>
+    </div>
+    <div>
+      <%= f.text_field :nickname, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :introduction, '自己紹介' %>
+    </div>
+    <div>
+      <%= f.text_area :introduction %>
+    </div>
+    <div>
+      <%= f.label :gender, '性別' %>
+    </div>
+    <div>
+      <%= f.select :gender, Profile.genders.keys, {}, { class: 'text' } %>
+    </div>
+    <div>
+      <%= f.label :birthday,'生年月日' %>
+    </div>
+    <div>
+      <%= f.date_field :birthday, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :subscribed, '通知を受け取る' %>
+      <%= f.check_box :subscribed %>
+    </div>
+    <%= f.submit '保存', class: 'btn-primary' %>
+  <% end %>
+</div>

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_07_072114) do
+ActiveRecord::Schema.define(version: 2022_06_07_130811) do
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "nickname"
+    t.text "introduction"
+    t.integer "gender"
+    t.date "birthday"
+    t.boolean "subscribed", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
