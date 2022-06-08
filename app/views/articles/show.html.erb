@@ -1,6 +1,7 @@
 
 <div class = "container">
-  <div class = "row">
+  <%=link_to "topに戻る", root_path , class: "btn btn-sm btn-secondary"%>
+  <div class = "row mt-5">
 
     <div class = "col-md-8 offset-md-1">
       <h2><%= @article.title %></h2>
@@ -42,6 +43,7 @@
   </div>
 
   <div>
+    <h3 class="text-center my-5">コメント一覧</h3>
     <p>コメント件数：<%= @article.comments.count %></p>
     <table class="article_comments">
       <%= render 'comments/index', article: @article %>
