@@ -43,24 +43,16 @@
 
   <div>
     <p>コメント件数：<%= @article.comments.count %></p>
-    <% @article.comments.each do |comment| %>
-      <p><%= image_tag comment.user.profile.get_profile_image(100,100 ) %></p>
-      <%= comment.user.name %>
-      <%= comment.created_at.strftime('%Y/%m/%d') %>
-      <%= comment.comment %>
-      <!--コメントした人だけが削除できる-->
-      <% if comment.user == current_user %>
-      <!--ネストしているから-->
-        <%= link_to "削除", article_comment_path(comment.article, comment), method: :delete %>
-      <% end %>
-    <% end %>
+    <table class="article_comments">
+      <%= render 'comments/index', article: @article %>
+    </table>
   </div>
 
   <!--コメント投稿-->
   <div>
     <!--ネストしているから-->
-    <%= form_with model: [@article, @comment] do |f| %>
-      <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= form_with model: [@article, @comment],  local: false do |f| %>
+      <%= f.text_area :comment, size:"90x5", placeholder: "コメントをここに" %>
       <%= f.submit "送信する" %>
     <% end %>
   </div>

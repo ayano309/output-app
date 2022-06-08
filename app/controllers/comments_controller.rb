@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     unless @comment.save
       render 'error'  #comments/error.js.erbを参照する 
     end
-      redirect_to request.referer
+      # redirect_to request.referer
       #comments/create.js.erbを参照する
   end
   
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     comment = @article.comments.find(params[:id])
     comment.destroy
-    redirect_to request.referer
+    # redirect_to request.referer
     #comments/destroy.js.erbを参照する
   end
 
