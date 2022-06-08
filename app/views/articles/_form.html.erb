@@ -1,0 +1,32 @@
+<div class="container">
+  <ul>
+    <%= render 'layouts/errors', obj: @article %>
+  </ul>
+  <%= form_with(model: @article, local: true) do |f| %>
+    <div>
+      <%= f.label :image, 'イメージ' %>
+    </div>
+    <div>
+      <%= f.file_field :image %>
+    </div>
+    <div>
+      <%= f.label :title, 'タイトル' %>
+    </div>
+    <div>
+      <%= f.text_field :title, class: 'text' %>
+    </div>
+    <div>
+      <%= f.label :content, '内容' %>
+    </div>
+    <div>
+      <%= f.rich_text_area :content %>
+    </div>
+    <div>
+      <%= f.label :subcontent, '参考内容' %>
+    </div>
+    <div>
+      <%= f.text_field :subcontent, class: 'text' %>
+    </div>
+    <%= f.submit '保存', class: 'btn-primary' %>
+  <% end %>
+</div>

@@ -7,7 +7,7 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     attributes:
-      book:
+      article:
         title: 'タイトル'
         content: '内容'
   date:

@@ -1,0 +1,43 @@
+
+<div class = "container">
+  <div class = "row">
+
+    <div class = "col-md-8 offset-md-1">
+      <h2><%= @article.title %></h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>
+              <% if @article.image.attached? %>
+                <%=image_tag @article.get_image(300, 300) %>
+              <% end %>
+            </th>
+          </tr>
+          <tr id="article_<%= @article.id %>">
+            <td class="favorite-btn">
+              <%= render "favorites/favorite-btn", article: @article %></td>
+            </td>
+          </tr>
+          <tr>
+            <th>内容</th>
+            <td><%= @article.content %></td>
+          </tr>
+          <tr>
+            <th>参考内容</th>
+            <td><%= @article.subcontent %></td>
+          </tr>
+          <tr>
+            <% if @user.id == current_user.id %>
+              <td>
+                <%= link_to "Edit", edit_article_path(@article), class: "btn btn-sm btn-success" %>
+                <%= link_to "Destroy", article_path(@article), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
+              </td>
+            <% end %>
+          </tr>
+            
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
