@@ -1,6 +1,7 @@
 
 <div class = "container">
-  <div class = "row">
+  <%=link_to "topに戻る", root_path , class: "btn btn-sm btn-secondary"%>
+  <div class = "row mt-5">
 
     <div class = "col-md-8 offset-md-1">
       <h2><%= @article.title %></h2>
@@ -17,6 +18,7 @@
             <td class="favorite-btn">
               <%= render "favorites/favorite-btn", article: @article %></td>
             </td>
+
           </tr>
           <tr>
             <th>内容</th>
@@ -38,6 +40,23 @@
         </tbody>
       </table>
     </div>
+  </div>
+
+  <div>
+    <h3 class="text-center my-5">コメント一覧</h3>
+    <p>コメント件数：<%= @article.comments.count %></p>
+    <table class="article_comments">
+      <%= render 'comments/index', article: @article %>
+    </table>
+  </div>
+
+  <!--コメント投稿-->
+  <div>
+    <!--ネストしているから-->
+    <%= form_with model: [@article, @comment],  local: false do |f| %>
+      <%= f.text_area :comment, size:"90x5", placeholder: "コメントをここに" %>
+      <%= f.submit "送信する" %>
+    <% end %>
   </div>
 </div>
 

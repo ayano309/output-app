@@ -1,0 +1,15 @@
+<% article.comments.each do |comment| %>
+  <% comment_user = comment.user %>
+  <tr>
+    <td>
+      <%= image_tag comment.user.profile.get_profile_image(100, 100) %><br>
+      <%= comment.user.name %>
+    </td>  
+  </tr>
+  <tr>
+    <td><%= comment.comment %></td>
+    <% if current_user == comment.user %>
+      <td><%= link_to '削除', article_comment_path(comment.article_id, comment.id), method: :delete, remote: true %></td>
+    <% end %>
+  </tr>
+<% end %>
