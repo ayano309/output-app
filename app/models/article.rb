@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   has_one_attached :image
   has_rich_text :content
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true
   validates :title ,length: {minimum:2 ,maximum:50 }
