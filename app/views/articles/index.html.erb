@@ -13,10 +13,13 @@
         </thead>
         <tbody>
           <% @articles.each do |article| %>
-          <tr>
-            <td><%= link_to article.title, article_path(article) %></td>
-            <td>タグ</td>
-          </tr>
+            <tr id="article_<%= article.id %>">
+              <td><%= link_to article.title, article_path(article) %></td>
+              <td>タグ</td>
+              <td class="favorite-btn">
+                <%= render "favorites/favorite-btn", article: article %></td>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>

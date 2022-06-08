@@ -2,11 +2,14 @@ class Article < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_rich_text :content
+  has_many :favorites, dependent: :destroy
+
   validates :title, presence: true
   validates :title ,length: {minimum:2 ,maximum:50 }
   validates :title,format: { with: /\A(?!\@)/}
   validates :content, presence: true
   validates :subcontent, presence: true
+
 
   def get_image(width, height)
     unless image.attached?
@@ -14,5 +17,12 @@ class Article < ApplicationRecord
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     image.variant(resize_to_limit: [width, height]).processed
+  end
+
+  
+
+  #ユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
   end
 end
