@@ -1,2 +1,11 @@
-<h1>Relationships#followers</h1>
-<p>Find me in app/views/relationships/followers.html.erb</p>
+<div class="container">
+  <div class="commentPage">
+    <div class="commentPage_img">
+      <%= link_to "⬅︎戻る", profile_path ,class: "btn btn-secondary" %>
+    </div>
+    <div class="commentPage_title mt-5">
+      <h2>Followers</h2>
+    </div>
+  </div>
+</div>
+<%= render 'commons/follow', follows: @users %>
