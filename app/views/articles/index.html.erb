@@ -5,7 +5,7 @@
       <table class="table table-hover">
         <thead>
           <tr>
-              <th></th>
+              <th>投稿者名</th>
               <th>title</th>
               <th>tag</th>
               <th colspan="3"></th>
@@ -13,16 +13,7 @@
         </thead>
         <tbody>
           <% @articles.each do |article| %>
-            <tr id="article_<%= article.id %>">
-              <td><%= link_to article.title, article_path(article) %></td>
-              <td>タグ</td>
-              <td class="favorite-btn">
-                <%= render "favorites/favorite-btn", article: article %></td>
-              </td>
-              <td class="comments-count">
-                <%= link_to "#{article.comments.count} コメント", article_path(article) %>
-              </td>
-            </tr>
+            <%= render 'articles', article: article%>
           <% end %>
         </tbody>
       </table>

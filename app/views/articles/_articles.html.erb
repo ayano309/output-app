@@ -1,0 +1,15 @@
+<tr id="article_<%= article.id %>">
+  <td>
+    <%= link_to account_path(article.user) do%>
+      <%=article.user.name%>
+    <% end %>
+  </td>
+  <td><%= link_to article.title, article_path(article) %></td>
+  <td>タグ</td>
+  <td class="favorite-btn">
+    <%= render "favorites/favorite-btn", article: article %></td>
+  </td>
+  <td class="comments-count">
+    <%= link_to "#{article.comments.count} コメント", article_path(article) %>
+  </td>
+</tr>
