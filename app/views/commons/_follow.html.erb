@@ -1,0 +1,18 @@
+<div class="follow_card">
+  <% follows.each do |follow| %>
+    <div class="follow_card_list">
+      <div class="follow_card_content">
+        <div class="follow_card_user">
+          <%= link_to account_path(follow.id) do %>
+            <%= image_tag follow.avatar_image %>
+          <% end %>
+        </div>
+        <div class="follow_card_user_account">
+          <p class="follow_card_user_name">
+            <%= follow.name %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

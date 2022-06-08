@@ -55,3 +55,47 @@ $image_size: 56px;
     }
   }
 }
+
+.profilePage_user {
+
+  &_have {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 27px;
+
+    &_item {
+        .count {
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 24px; 
+          text-align: center;
+          margin-top: 0;
+          margin-bottom: 0;
+          color: #333A42;
+          }
+
+        .title {
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 21px;
+          color: #9E9E9E;
+          text-align: center;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+    }
+  }
+}
+
+.postedImage_have  {
+  margin-top: 42px;
+
+  &_item {
+      display: flex;
+      margin-bottom: 8px;
+  }
+}
