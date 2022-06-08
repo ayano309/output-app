@@ -19,6 +19,9 @@
               <td class="favorite-btn">
                 <%= render "favorites/favorite-btn", article: article %></td>
               </td>
+              <td>
+                <%= link_to "#{article.comments.count} コメント", article_path(article) %>
+              </td>
             </tr>
           <% end %>
         </tbody>
