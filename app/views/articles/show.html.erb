@@ -7,6 +7,11 @@
       <table class="table">
         <tbody>
           <tr>
+            <% if @article.image.attached? %>
+              <%=image_tag @article.image %>
+            <% end %>
+          </tr>
+          <tr>
             <th>内容</th>
             <td><%= @article.content %></td>
           </tr>
