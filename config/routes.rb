@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/followings'
-  get 'relationships/followers'
-  get 'accounts/show'
   devise_for :users
   root to: "articles#index"
   resource :profile, only: [:show, :edit, :update]
