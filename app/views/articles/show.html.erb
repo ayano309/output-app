@@ -8,7 +8,7 @@
         <tbody>
           <tr>
             <% if @article.image.attached? %>
-              <%=image_tag @article.image %>
+              <%=image_tag @article.get_image(300, 300) %>
             <% end %>
           </tr>
           <tr>
