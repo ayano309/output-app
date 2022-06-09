@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "articles#index"
+  root to: "home#index"
   resource :profile, only: [:show, :edit, :update]
   resources :articles do
     #resourceになることに注意！！！１人のユーザーが１つの投稿に１個のいいね
