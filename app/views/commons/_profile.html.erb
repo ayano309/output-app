@@ -17,7 +17,9 @@
             <% else %>
               <%= link_to "Follow", account_relationships_path(user.id), method: :post %>
             <% end %>
-            
+            <% if user.following?(current_user) %>
+              <%= link_to 'chatを始める', chat_path(user.id), class: "ml-2" %>
+            <% end %>
           <% end %>
         </div>
       </div>

@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <h2><%= @user.name %>さんとのチャット</h2>
+  <hr>
+<!--class=messageにappendする-->
+  <table class="message table">
+    <thead>
+      <tr>
+        <th>投稿者名</th>
+        <th>メッセージ</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @chats.each do |chat| %>
+        <tr>
+          <td><%= chat.user.name %></td>
+          <td><%= chat.message %></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <div class="errors">
+   <%= render "layouts/errors", obj: @chat %>
+  </div>
+
+  <div class="row mt-5">
+   <!--非同期通信なのでremote true-->
+   <!--f.hidden_fieldは、表示はしていないものの、paramsとして送りたいものを送る際に活用する。-->
+    <%= form_with model: @chat, data: {remote: true} do |f| %>
+      <%= f.text_field :message %>
+      <%= f.hidden_field :room_id %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <%= link_to 'User一覧へ戻る', users_path , class:"btn btn-success mt-3"%>
+</div>
