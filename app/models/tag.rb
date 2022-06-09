@@ -10,7 +10,7 @@ class Tag < ApplicationRecord
       tags = Tag.where(name: content)
     end
     # injectはたたみ込み演算
-    return tags.inject(init = []) {|result, tag| result + tag.books}
+    return tags.inject(init = []) {|result, tag| result + tag.articles}
     
   end
 end
