@@ -36,11 +36,20 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = current_user.articles.find(params[:id])
+    @tag_list=@article.tags.pluck(:name).join(',')
   end
 
   def update
     @article = current_user.articles.find(params[:id])
+    tag_list = params[:article][:tag_name].split(',')
     if @article.update(article_params)
+      #紐づいていたタグを@oldrelationsに入れる
+      @old_relations=ArticleTag.where(article_id: @article.id)
+      #それらを取り出し、全部消す
+      @old_relations.each do |relation|
+        relation.delete
+      end
+      @article.save_tags(tag_list)
     redirect_to article_path(@article), notice: '更新できました'
     else
     flash.now[:error] = '更新できませんでした'
