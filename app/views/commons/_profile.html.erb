@@ -17,11 +17,11 @@
             <% else %>
               <%= link_to "Follow", account_relationships_path(user.id), method: :post %>
             <% end %>
-            <% if user.following?(current_user) %>
-              <%= link_to 'chatを始める', chat_path(user.id), class: "ml-2" %>
-            <% end %>
           <% end %>
         </div>
+        <% if user.following?(current_user) %>
+          <%= link_to 'chatを始める', chat_path(user.id), class: "ml-2 btn btn-outline-secondary btn-sm" %>
+        <% end %>
       </div>
       <div class="profilePage_user_introduction">
         <%= user.profile&.introduction %>
