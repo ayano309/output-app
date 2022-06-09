@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#index"
+  root to: 'home#index'
   resource :profile, only: [:show, :edit, :update]
   resources :articles do
     #resourceになることに注意！！！１人のユーザーが１つの投稿に１個のいいね
     resource :favorites, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy] 
+    resources :comments, only: [:create, :destroy]
   end
 
   resources :accounts, only: [:index, :show] do

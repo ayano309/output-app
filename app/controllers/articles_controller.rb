@@ -1,12 +1,12 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-
+  impressionist :actions=> [:show]
   def index
     to  = Time.current.at_end_of_day
     from  = (to - 6.day).at_beginning_of_day
     @articles = Article.includes(:favorited_users).
-      sort {|a,b| 
+      sort {|a,b|
         b.favorited_users.includes(:favorites).where(created_at: from...to).size <=>
         a.favorited_users.includes(:favorites).where(created_at: from...to).size
       }
@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
   def show
     @user = @article.user
     @comment = Comment.new
+    impressionist(@article, nil, unique: [:session_hash])
   end
 
   def new

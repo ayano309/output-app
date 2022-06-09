@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+  is_impressionable
   belongs_to :user
   has_one_attached :image
   has_rich_text :content
@@ -13,7 +14,6 @@ class Article < ApplicationRecord
   validates :content, presence: true
   validates :subcontent, presence: true
 
-
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no-image.jpeg')
@@ -21,8 +21,6 @@ class Article < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-
-
 
   #ユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
   def favorited_by?(user)

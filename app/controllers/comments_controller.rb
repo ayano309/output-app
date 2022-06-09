@@ -5,12 +5,12 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.article_id = @article.id
     unless @comment.save
-      render 'error'  #comments/error.js.erbを参照する 
+      render 'error'  #comments/error.js.erbを参照する
     end
       # redirect_to request.referer
       #comments/create.js.erbを参照する
   end
-  
+
   def destroy
     @article = Article.find(params[:article_id])
     comment = @article.comments.find(params[:id])
@@ -19,7 +19,6 @@ class CommentsController < ApplicationController
     #comments/destroy.js.erbを参照する
   end
 
-
   private
 
   def comment_params
@@ -27,4 +26,3 @@ class CommentsController < ApplicationController
   end
 
 end
-
