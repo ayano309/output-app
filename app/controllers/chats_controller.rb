@@ -8,7 +8,7 @@ class ChatsController < ApplicationController
     #中間テーブルから一致するチャット相手のユーザーidとroomsの配列の中のidが部屋にあるか確認
     user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
     #user_roomsが空でなければ
-    unless user_rooms.nil? 
+    unless user_rooms.nil?
       #@roomに中間モデルで一致した部屋を代入
       @room = user_rooms.room
     else
@@ -26,14 +26,12 @@ class ChatsController < ApplicationController
     #新しいチャットを部屋の中で発信する
     @chat = Chat.new(room_id: @room.id)
   end
-  
+
   def create
     @chat = current_user.chats.new(chat_params)
     @chat.save
-    
-  end
 
-  
+  end
 
   private
   def chat_params

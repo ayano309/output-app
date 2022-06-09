@@ -13,8 +13,6 @@ class Article < ApplicationRecord
   validates :title,format: { with: /\A(?!\@)/}
   validates :content, presence: true
   validates :subcontent, presence: true
-  
-
 
   def get_image(width, height)
     unless image.attached?
@@ -23,8 +21,6 @@ class Article < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-
-
 
   #ユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
   def favorited_by?(user)

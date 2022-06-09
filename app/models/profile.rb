@@ -10,6 +10,5 @@ class Profile < ApplicationRecord
     end
     avatar.variant(resize_to_limit: [width, height]).processed
   end
-  
 
 end

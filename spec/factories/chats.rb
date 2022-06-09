@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :chat do
     user { nil }
     room { nil }
-    message { "MyString" }
+    message { 'MyString' }
   end
 end
