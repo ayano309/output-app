@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy] 
   end
 
-  resources :accounts, only: [:show] do
+  resources :accounts, only: [:index, :show] do
     #フォローする、外す(いいね関係と同じでresourceに注意)
     resource :relationships, only: [:create, :destroy]
     #フォローした人一覧
