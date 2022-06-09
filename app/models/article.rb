@@ -8,6 +8,9 @@ class Article < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  has_many :article_tags, dependent: :destroy
+  has_many :tags, through: :article_tags
+
   validates :title, presence: true
   validates :title ,length: {minimum:2 ,maximum:50 }
   validates :title,format: { with: /\A(?!\@)/}
