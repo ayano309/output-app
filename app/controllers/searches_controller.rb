@@ -7,6 +7,8 @@ class SearchesController < ApplicationController
     @method = params[:method]
     if @model == 'article'
       @records = Article.search_for(@content, @method)
+    elsif @model == 'tag'
+			@records = Tag.search_articles_for(@content, @method)
     end
   end
 end
