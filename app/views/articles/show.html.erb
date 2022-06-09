@@ -1,6 +1,6 @@
 
 <div class = "container">
-  <%=link_to "topに戻る", root_path , class: "btn btn-sm btn-secondary"%>
+  <%=link_to "一覧に戻る", articles_path , class: "btn btn-sm btn-secondary"%>
   <div class = "row mt-5">
     <div class = "col-md-8 offset-md-1">
       <div class="article_view_count d-flex">
@@ -11,10 +11,10 @@
       <table class="table">
         <tbody>
           <tr>
-            <td>
+            <td class="tag">
               <% @article.tags.each do |tag| %>
                 <li style="list-style: none;">
-                  <%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %>
+                  <%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") ,class: "tag_name"%>
                 </li>
               <% end %>
             </td>
