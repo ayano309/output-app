@@ -20,10 +20,18 @@ class Article < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
-  
+
 
   #ユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+
+  #検索
+  def self.search_for(content, method)
+    if method == 'partial'
+      Article.where('title LIKE ?', '%'+content+'%')
+    end
+  end
+
 end
