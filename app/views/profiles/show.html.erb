@@ -1,1 +1,13 @@
+<div class="container">
+  <div class="tabs">
+    <div class="<%= add_active_class(profile_path) %> tabs_item">
+      <%= link_to '記事一覧', profile_path %>
+    </div>
+    <div class="<%= %> tabs_item">
+      グラフ
+    </div>
+  </div>
+</div>
+
+
 <%= render 'commons/profile', user: current_user%>
