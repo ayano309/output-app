@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+  is_impressionable
   belongs_to :user
   has_one_attached :image
   has_rich_text :content
@@ -12,6 +13,7 @@ class Article < ApplicationRecord
   validates :title,format: { with: /\A(?!\@)/}
   validates :content, presence: true
   validates :subcontent, presence: true
+  
 
 
   def get_image(width, height)
