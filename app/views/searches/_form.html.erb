@@ -1,0 +1,6 @@
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :content %>
+  <%= f.hidden_field :model, :value => "article"  %>
+  <%= f.hidden_field :method, :value => "partial" %>
+  <%= f.submit '検索' %>
+<% end %>

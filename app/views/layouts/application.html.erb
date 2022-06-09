@@ -12,6 +12,11 @@
 
   <body>
     <%=render 'layouts/header'%>
+    <div class="container">
+      <div class="row justify-content-start mb-2">
+        <div class="mr-3"><%= render 'searches/form' %></div>
+      </div>
+    </div>
     <% if flash.present? %>
       <div class="flash">
         <% flash.each do |key, value| %>
