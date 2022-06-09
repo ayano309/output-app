@@ -11,7 +11,7 @@
   <%if user_signed_in?%>
     <%=link_to "User一覧", accounts_path , class: "btn btn-secondary btn-sm d-flex align-items-center justify-content-center"%>
     <div class="dropdown">
-      <%= image_tag 'male.svg', class: 'header_avatar dropbtn' %>
+      <%= image_tag current_user.avatar_image, class: 'header_avatar dropbtn' %>
       <div class="dropdown-content">
         <%= link_to 'プロフィール', profile_path%>
         <%= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }%>
