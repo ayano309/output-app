@@ -27,6 +27,10 @@
     <div>
       <%= f.text_field :subcontent, class: 'text' %>
     </div>
+    <div class="form-group">
+      <%= f.label "Tag" %>
+      <%= f.text_field :tag_name, class: 'form-control article_tag_name' %>
+    </div>
     <%= f.submit '保存', class: 'btn-primary' %>
   <% end %>
 </div>

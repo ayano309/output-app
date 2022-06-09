@@ -42,9 +42,9 @@ class Article < ApplicationRecord
     # タグが存在していれば、タグの名前を配列として全て取得
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
     # 現在取得したタグから送られてきたタグを除いてoldtagとする
-    old_tags = current_tags - savebook_tags
+    old_tags = current_tags - savearticle_tags
     # 送信されてきたタグから現在存在するタグを除いたタグをnewとする
-    new_tags = savebook_tags - current_tags
+    new_tags = savearticle_tags - current_tags
 		
     # 古いタグを消す
     old_tags.each do |old_name|

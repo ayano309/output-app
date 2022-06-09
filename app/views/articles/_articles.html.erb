@@ -5,7 +5,13 @@
     <% end %>
   </td>
   <td><%= link_to article.title, article_path(article) %></td>
-  <td>タグ</td>
+  <td>
+    <% article.tags.each do |tag| %>
+      <li style="list-style: none;">
+        <%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %> 
+      </li>
+    <% end %>
+  </td>
   <td class="favorite-btn">
     <%= render "favorites/favorite-btn", article: article %></td>
   </td>
