@@ -1,0 +1,29 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>今週の投稿数</th>
+        <th>前週の投稿数</th>
+        <th>前週比</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+        <td><%= @this_week_book.count %></td>
+        <td><%= @last_week_book .count %></td>
+        <td>
+          <% if @last_week_book.count == 0 %>
+            前週の投稿はありません
+          <% else %>
+          <!--to_fメソッドはオブジェクトの少数点までの数値も表示-->
+          <!--前週比=今週の投稿数÷先週の投稿数-->
+            <% @the_week_before =   @this_week_book.count / @last_week_book.count.to_f  %>
+          <!--roundメソッドで四捨五入-->
+            <%= (@the_week_before * 100).round %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
