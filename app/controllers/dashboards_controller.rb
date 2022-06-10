@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
     @user = current_user
     @articles = @user.articles
 
-    @this_week_book = @articles.created_this_week
-    @last_week_book = @articles.created_last_week
+    @this_week_article = @articles.created_this_week
+    @last_week_article = @articles.created_last_week
   end
 end

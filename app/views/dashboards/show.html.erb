@@ -12,15 +12,15 @@
     
     <tbody>
       <tr>
-        <td><%= @this_week_book.count %></td>
-        <td><%= @last_week_book .count %></td>
+        <td><%= @this_week_article.count %></td>
+        <td><%= @last_week_article.count %></td>
         <td>
-          <% if @last_week_book.count == 0 %>
+          <% if @last_week_article.count == 0 %>
             前週の投稿はありません
           <% else %>
           <!--to_fメソッドはオブジェクトの少数点までの数値も表示-->
           <!--前週比=今週の投稿数÷先週の投稿数-->
-            <% @the_week_before =   @this_week_book.count / @last_week_book.count.to_f  %>
+            <% @the_week_before =   @this_week_article.count / @last_week_article.count.to_f  %>
           <!--roundメソッドで四捨五入-->
             <%= (@the_week_before * 100).round %>
           <% end %>
@@ -28,4 +28,10 @@
       </tr>
     </tbody>
   </table>
+  <%= month_calendar events: @articles do |date, articles| %>
+    <%= date.day %><br>
+    <div class="<%=  way_color(articles) %> tabs_item">
+      <%= articles.count %>
+    </div>
+  <% end %>
 </div>
