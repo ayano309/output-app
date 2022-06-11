@@ -28,8 +28,8 @@
       </div>
     </div>
   </div>
-  
 </div>
+
 <div class="profilePage_user_have">
   <div class="profilePage_user_have_item">
     <p class="count">
@@ -54,7 +54,16 @@
     </div>
   <% end %>
 </div>
+
+
 <div class = "container mt-5">
+  <%=link_to "グループを作成する", new_group_path ,class: "btn btn-primary btn-sm"%> | <%= link_to "グループ一覧", groups_path ,class:"btn btn-secondary btn-sm"%>
+</div>
+
+
+
+
+<div class = "container mt-3">
   <div class = "row">
     <div class = "col-md-8 offset-md-1">
       <h2>記事一覧</h2>

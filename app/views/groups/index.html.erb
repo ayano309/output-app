@@ -1,0 +1,36 @@
+<div class="col-md-8 offset-md-1">
+  <table class="table">
+
+    <h2>Group</h2>
+    <thead>
+      <tr>
+        <th colspan="１"></th>
+        <th>グループ名</th>
+        <th>紹介文</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+  <% @groups.each do |group| %>
+    <tbody>
+      <tr>
+      <td><%= image_tag group.get_image(100,100) %></td>
+      <td>
+        <%= link_to group_path(group) do%>
+          <%= group.name %>
+        <% end %>
+      </td>
+      <td> <%= group.introduction %></td>
+      <td>
+        <% if group.owner_id == current_user.id %>
+          <%= link_to 'Edit', edit_group_path(group), class: "btn btn-sm btn-success" %>
+        <% end %>
+      </td>
+      </tr>
+    </tbody>
+  <% end %>
+  </table>
+</div>
+
+
