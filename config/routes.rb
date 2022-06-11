@@ -22,5 +22,9 @@ Rails.application.routes.draw do
   resource :timeline, only: [:show]
   #ダッシュボード
   resource :dashboard, only: [:show]
+  #グループ
+  resources :groups do
+    resource :group_users, only: [:create, :destroy]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

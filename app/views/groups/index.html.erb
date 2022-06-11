@@ -1,0 +1,44 @@
+<div class = "container">
+  <%=link_to " 勉強会グループ作成", new_group_path ,class: "btn btn-success d-block mx-auto mt-3"%> 
+</div>
+
+<div class="col-md-8 offset-md-1">
+  <table class="table">
+
+    <h2>Group</h2>
+    <thead>
+      <tr>
+        <th colspan="１"></th>
+        <th>勉強会名</th>
+        <th>紹介文</th>
+        <th>参加人数</th>
+        <th></th>
+      </tr>
+    </thead>
+
+  <% @groups.each do |group| %>
+    <tbody>
+      <tr>
+      <td><%= image_tag group.get_image(100,100) %></td>
+      <td>
+        <%= group.name %>
+      </td>
+      <td> <%= group.introduction %></td>
+      <td><%= group.group_users.count %></td>
+      
+      <td>
+        <% if group.is_owned_by?(current_user) %>
+          <%= link_to '編集', edit_group_path(group), class: "btn btn-sm btn-outline-success" %>
+          <%= link_to '削除',group_path(group),method: :delete,data: { confirm: '本当に削除しますか？' } ,class: "btn btn-sm btn-outline-danger" %>
+        <% end %>
+        <%= link_to group_path(group),class: "btn btn-sm btn-outline-info" do%>
+          詳細
+        <% end %>
+      </td>
+      </tr>
+    </tbody>
+  <% end %>
+  </table>
+</div>
+
+

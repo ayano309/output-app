@@ -1,0 +1,37 @@
+
+<div class="col-md-8 offset-md-1">
+  <h2>Group Detail</h2>
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th></th>
+        <th>勉強会名</th>
+        <th>紹介文</th>
+        <th>メンバー</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= image_tag(@group.get_image(100,100))%></td>
+        <td><%= @group.name %></td>
+        <td><%= @group.introduction%></td>
+        <td>
+          <% @group.users.each do |member| %>
+            <%= member.name %><br>
+          <% end %>
+        </td>
+        <td>
+          <% if @group.is_owned_by?(current_user) %>
+            <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
+          <% elsif @group.includesUser?(current_user)%>
+            <%= link_to 'グループから抜ける', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
+          <% else %>
+            <%= link_to '参加する', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%=link_to "グループ一覧へ", groups_path ,class: "btn btn-secondary btn-sm"%>
+</div>
