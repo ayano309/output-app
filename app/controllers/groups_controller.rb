@@ -45,6 +45,16 @@ class GroupsController < ApplicationController
 
   end
 
+  def destroy
+    group = Group.find(params[:id])
+    if group.destroy!
+      redirect_to groups_path
+    else
+      render :show
+    end
+  end
+
+
 
   private
 
