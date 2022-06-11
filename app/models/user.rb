@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :user_rooms, dependent: :destroy
 
   has_many :group_users,  dependent: :destroy
-  has_many :groups, through: :group_users
+  has_many :groups, through: :group_users, dependent: :destroy
 
   #フォローの関係(２行目は一覧画面で使う)自分がフォローする
   has_many :following_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
