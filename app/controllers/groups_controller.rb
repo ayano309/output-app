@@ -19,7 +19,9 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     #groupの作成者のIDを代入する
     @group.owner_id = current_user.id
-
+    #この記述をしないとグループ作成者がgroupに含まれない
+    #groupのユーザにグループ作成者をpush(追加)している
+    @group.users << current_user
     if @group.save
       redirect_to groups_path
     else

@@ -7,7 +7,7 @@
         <th colspan="１"></th>
         <th>勉強会名</th>
         <th>紹介文</th>
-        <th></th>
+        <th>参加人数</th>
         <th></th>
       </tr>
     </thead>
@@ -17,14 +17,17 @@
       <tr>
       <td><%= image_tag group.get_image(100,100) %></td>
       <td>
-        <%= link_to group_path(group) do%>
-          <%= group.name %>
-        <% end %>
+        <%= group.name %>
       </td>
       <td> <%= group.introduction %></td>
+      <td><%= group.group_users.count %></td>
+      
       <td>
-        <% if group.owner_id == current_user.id %>
+        <% if group.is_owned_by?(current_user) %>
           <%= link_to 'Edit', edit_group_path(group), class: "btn btn-sm btn-success" %>
+        <% end %>
+        <%= link_to group_path(group),class: "btn btn-sm btn-info" do%>
+          詳細へ
         <% end %>
       </td>
       </tr>
