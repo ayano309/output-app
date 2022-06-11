@@ -66,4 +66,3 @@ gem 'impressionist'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_calendar', '~> 2.0'
 gem 'dotenv-rails'
-gem 'slack-notifier'
