@@ -250,6 +250,7 @@ GEM
     semantic_range (3.0.0)
     simple_calendar (2.4.3)
       rails (>= 3.0)
+    slack-notifier (2.4.0)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -318,6 +319,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
   simple_calendar (~> 2.0)
+  slack-notifier
   spring
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
