@@ -1,0 +1,18 @@
+
+<div class="col-md-8 offset-md-1">
+  <h2>Group Detail</h2>
+  <table class="table table-hover table-inverse">
+    <tbody>
+      <tr>
+        <td><%= image_tag(@group.get_image(100,100))%></td>
+        <td><%= @group.name %></td>
+        <td><%= @group.introduction%></td>
+        <td>
+          <% if @group.owner_id == current_user.id %>
+            <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
