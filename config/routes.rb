@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   end
   get '/search', to: 'searches#search'
   resources :chats, only: [:show, :create]
-
+  #タイムライン
+  resource :timeline, only: [:show]
+  #ダッシュボード
   resource :dashboard, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

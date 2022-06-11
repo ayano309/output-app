@@ -63,13 +63,13 @@
           <tr>
               <th>投稿者名</th>
               <th>title</th>
-              <th>tag</th>
+              <th></th>
               <th colspan="3"></th>
           </tr>
         </thead>
         <tbody>
           <% user.articles.each do |article| %>
-            <%= render 'articles/articles', article: article%>
+            <%= render 'commons/articles', article: article%>
           <% end %>
         </tbody>
       </table>

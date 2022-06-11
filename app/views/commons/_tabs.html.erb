@@ -2,7 +2,7 @@
   <div class="<%= add_active_class(articles_path) %> tabs_item">
     <%= link_to '記事一覧', articles_path %>
   </div>
-  <div class="<%= %> tabs_item">
-    タイムライン
+  <div class="<%=add_active_class(timeline_path) %> tabs_item">
+    <%=link_to 'タイムライン', timeline_path%>
   </div>
 </div>

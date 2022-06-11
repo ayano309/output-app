@@ -1,28 +1,11 @@
 <div class = "container">
   <%= render 'commons/tabs'%>
-  <div class = "row mt-5">
-    <div class = "col-md-8 offset-md-1">
-      <h2>記事一覧</h2>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-              <th>投稿者名</th>
-              <th>title</th>
-              <th>tag</th>
-              <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @articles.each do |article| %>
-            <%= render 'articles', article: article%>
-          <% end %>
-        </tbody>
-      </table>
-      <%= link_to new_article_path do %>
-        <div class="float_btn">
-          <i class="fa fa-plus"></i>
-        </div>
-      <% end %>
-    </div>
+  <div class="tag mt-5">
+    <% @tags.each do |tag| %>
+      <li style="list-style: none;">
+        <%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") ,class: "tag_name"%>
+      </li>
+    <% end %>
   </div>
+  <%= render 'commons/article',articles: @articles%>
 </div>
