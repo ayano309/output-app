@@ -19,13 +19,13 @@
               <% end %>
             </td>
           </tr>
-          <tr>
-            <th>
-              <% if @article.image.attached? %>
+          <% if @article.image.attached? %>
+            <tr>
+              <th>
                 <%=image_tag @article.get_image(300, 300) %>
-              <% end %>
-            </th>
-          </tr>
+              </th>
+            </tr>
+          <% end %>
           <tr>
             <th>作成者</th>
             <td>
