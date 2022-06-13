@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
   #通知
   resources :notifications, only: [:index]
+  delete '/notifications', to: 'notifications#destroy_all', as: 'notifications_delete'
   #検索
   get '/search', to: 'searches#search'
   #DMチャット
