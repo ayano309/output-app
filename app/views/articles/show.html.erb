@@ -19,34 +19,41 @@
               <% end %>
             </td>
           </tr>
-          <tr>
-            <th>
-              <% if @article.image.attached? %>
+          <% if @article.image.attached? %>
+            <tr>
+              <th>
                 <%=image_tag @article.get_image(300, 300) %>
-              <% end %>
-            </th>
-          </tr>
+              </th>
+            </tr>
+          <% end %>
           <tr>
-            <th>作成者</th>
             <td>
+              <strong>作成者</strong>
+              <br>
               <%=link_to account_path(@article.user) do%>
-              <%= @article.user.name %>
-            <% end %>
+                <%=image_tag @article.user.avatar_image,size: "60x60"%>
+                <%= @article.user.name %>
+              <% end %>
             </td>
           </tr>
           <tr id="article_<%= @article.id %>">
-            <th></th>
             <td class="favorite-btn">
               <%= render "favorites/favorite-btn", article: @article %></td>
             </td>
           </tr>
           <tr>
-            <th>内容</th>
-            <td><%= @article.content %></td>
+            <td>
+              <strong>参考内容</strong>
+                <br>
+              <%= @article.content %>
+            </td>
           </tr>
           <tr>
-            <th>参考内容</th>
-            <td><%= @article.subcontent %></td>
+            <td>
+              <strong>内容</strong>
+              <br>
+              <%= @article.subcontent %>
+            </td>
           </tr>
           <tr>
             <% if @user.id == current_user.id %>

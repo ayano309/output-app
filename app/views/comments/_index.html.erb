@@ -3,12 +3,12 @@
   <tr>
     <td>
       <%= link_to account_path(@article.user) do%>
-        <%= image_tag comment.user.profile.get_profile_image(100, 100) %><br>
+
+        <%= image_tag comment.user.avatar_image, size: "60x60"%><br>
         <%= comment.user.name %>
       <% end %>
     </td>  
-  </tr>
-  <tr>
+  
     <td><%= comment.comment %></td>
     <% if current_user == comment.user %>
       <td><%= link_to '削除', article_comment_path(comment.article_id, comment.id), method: :delete, remote: true %></td>

@@ -15,17 +15,19 @@
     <div>
       <%= f.text_field :title, class: 'text' %>
     </div>
+    
     <div>
-      <%= f.label :content, '内容' %>
+      <%= f.label :subcontent, '内容' %>
+    </div>
+    <div>
+      <%= f.text_area :subcontent, class: 'text' %>
+    </div>
+
+    <div>
+      <%= f.label :content,  '参考内容'  %>
     </div>
     <div>
       <%= f.rich_text_area :content %>
-    </div>
-    <div>
-      <%= f.label :subcontent, '参考内容' %>
-    </div>
-    <div>
-      <%= f.text_field :subcontent, class: 'text' %>
     </div>
     <div class="form-group">
       <%= f.label "Tag" %>
