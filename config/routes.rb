@@ -16,7 +16,12 @@ Rails.application.routes.draw do
     #フォローされた人一覧
     get 'followers' => 'relationships#followers', as: 'followers'
   end
+  #通知
+  resources :notifications, only: [:index]
+  delete '/notifications', to: 'notifications#destroy_all', as: 'notifications_delete'
+  #検索
   get '/search', to: 'searches#search'
+  #DMチャット
   resources :chats, only: [:show, :create]
   #タイムライン
   resource :timeline, only: [:show]
