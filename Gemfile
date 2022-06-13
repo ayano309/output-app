@@ -66,3 +66,5 @@ gem 'impressionist'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_calendar', '~> 2.0'
 gem 'dotenv-rails'
+gem 'redcarpet', '~> 2.3.0'  # マークダウン形式での表示
+gem 'coderay'                # シンタックスハイライト対応

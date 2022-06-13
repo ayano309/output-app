@@ -52,7 +52,7 @@
             <td>
               <strong>内容</strong>
               <br>
-              <%= @article.subcontent %>
+              <%= markdown(@article.subcontent).html_safe %>
             </td>
           </tr>
           <tr>
