@@ -24,6 +24,8 @@
         <td>
           <% if @group.is_owned_by?(current_user) %>
             <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
+            
+            <%= link_to 'メール作成', new_group_event_notice_path(@group), class: "btn btn-sm btn-info" %>
           <% elsif @group.includesUser?(current_user)%>
             <%= link_to 'グループから抜ける', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
           <% else %>

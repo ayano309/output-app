@@ -31,7 +31,7 @@
           <%= link_to '編集', edit_group_path(group), class: "btn btn-sm btn-outline-success" %>
           <%= link_to '削除',group_path(group),method: :delete,data: { confirm: '本当に削除しますか？' } ,class: "btn btn-sm btn-outline-danger" %>
         <% end %>
-        <%= link_to group_path(group),class: "btn btn-sm btn-outline-info" do%>
+        <%= link_to group_path(group),class: "btn btn-sm btn-info" do%>
           詳細
         <% end %>
       </td>

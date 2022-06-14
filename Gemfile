@@ -50,6 +50,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-byebug'
   gem 'spring'
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -65,6 +66,5 @@ gem 'devise'
 gem 'impressionist'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_calendar', '~> 2.0'
-gem 'dotenv-rails'
 gem 'redcarpet', '~> 2.3.0'  # マークダウン形式での表示
 gem 'coderay'                # シンタックスハイライト対応
