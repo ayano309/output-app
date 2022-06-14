@@ -34,6 +34,11 @@
 * 通知機能
 
 
+# ER図
+
+![output_app ER図](https://user-images.githubusercontent.com/99533616/173549517-326e5cca-0294-4a26-a41a-828b7b3ab90c.jpeg)
+
+
 # 使用技術
 ## バックエンド
  * Ruby 2.7.5p203 (2021-11-24 revision f69aeb8314) [arm64-darwin20]
@@ -66,4 +71,3 @@
 ## その他
 * ActiveStrage
 * ActionText
-
