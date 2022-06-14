@@ -29,6 +29,6 @@
       </div>
     </div>
   <% else %>
-    <%= link_to 'ログイン', new_user_session_path, class: 'header_loginBtn' %>
+    <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: 'header_loginBtn' ,method: 'post'%>
   <% end %>
 </header>

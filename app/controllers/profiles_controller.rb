@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_guest_user, only: [:edit]
 
   def show
     @profile = current_user.profile
@@ -31,4 +32,10 @@ class ProfilesController < ApplicationController
       :avatar
     )
   end
+  def ensure_guest_user
+    @user = current_user
+    if @user.name == "guestuser"
+      redirect_to profile_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
+  end  
 end
