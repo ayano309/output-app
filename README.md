@@ -63,7 +63,7 @@
 * gem 'coderay'                **シンタックスハイライト対応**
 * gem 'image_processing', '~> 1.2'
 
-その他
+## その他
 * Active　Strage
 * Action　Text
 
