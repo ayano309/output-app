@@ -64,6 +64,6 @@
 * gem 'image_processing', '~> 1.2'
 
 ## その他
-* Active　Strage
-* Action　Text
+* ActiveStrage
+* ActionText
 
