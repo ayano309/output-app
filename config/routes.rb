@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
-  get 'event_notices/new'
-  devise_for :users
   root to: 'home#index'
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions',
+    :passwords => 'users/passwords',
+    :confirmations => 'users/confirmations',
+    :unlocks => 'users/unlocks',
+  }
+  #ゲストログイン
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
   resource :profile, only: [:show, :edit, :update]
   resources :articles do
     #resourceになることに注意！！！１人のユーザーが１つの投稿に１個のいいね
