@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'event_notices/new'
   devise_for :users
   root to: 'home#index'
   resource :profile, only: [:show, :edit, :update]
@@ -30,6 +31,10 @@ Rails.application.routes.draw do
   #グループ
   resources :groups do
     resource :group_users, only: [:create, :destroy]
+    #メール作成
+    resources :event_notices, only: [:new, :create]
+    #送信後の確認画面
+    get "event_notices" => "event_notices#sent"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
