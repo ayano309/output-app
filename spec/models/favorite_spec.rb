@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'favoriteモデルのテスト' do
+    it "有効なfavoriteの場合は保存されるか" do
+      expect(build(:favorite)).to be_valid
+    end
+  end
 end

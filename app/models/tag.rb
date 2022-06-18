@@ -2,7 +2,8 @@ class Tag < ApplicationRecord
   has_many :article_tags, dependent: :destroy, foreign_key: 'tag_id'
   has_many :articles, through: :article_tags
 
-  validates :name, uniqueness: true, presence: true
+  validates :name, uniqueness: true, presence: true, length: { maximum: 5 }
+  
 
   def self.search_articles_for(content, method)
     
