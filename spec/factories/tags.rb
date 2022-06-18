@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :tag do
-    name { "MyString" }
+    name { Faker::Lorem.characters(number: 5) }
   end
 end
