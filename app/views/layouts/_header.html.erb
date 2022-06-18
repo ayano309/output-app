@@ -1,11 +1,15 @@
 <header class="header">
   <% if user_signed_in?%>
     <p class="header_pageTitle">
-      <%= link_to 'OutputApp', articles_path%>
+      <%= link_to articles_path do%>
+        <%=image_tag "knowput" ,size: "80x80"%>
+      <% end %>
     </p>
-    <%else%>
+  <%else%>
     <p class="header_pageTitle">
-      <%= link_to 'OutputApp', root_path%>
+      <%= link_to  root_path do%>
+        <%=image_tag "knowput" ,size: "80x80"%>
+      <% end %>
     </p>
   <% end %>
   <%if user_signed_in?%>
