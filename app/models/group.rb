@@ -3,8 +3,9 @@ class Group < ApplicationRecord
   has_many :group_users,  dependent: :destroy
   has_many :users, through: :group_users,  dependent: :destroy, source: :user
 
-  validates :name, presence: true
-  validates :introduction, presence: true
+  validates :name, presence: true, length: { in: 2..30 }
+  validates :introduction, presence: true, length: { in: 2..100 }
+  
 #ActiveStrageの紐付け
   has_one_attached :image
 
