@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OutputApp</title>
+    <title>Knowput</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -22,5 +22,8 @@
       </div>
     <% end %>
     <%= yield %>
+    <footer>
+    <%= render 'layouts/footer'%>
+    </footer>
   </body>
 </html>
