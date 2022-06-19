@@ -7,9 +7,9 @@ RSpec.describe Article, type: :model do
     end
 
     context 'nameカラム' do
-      it "6文字以上のタグは保存されない" do
+      it "31文字以上のタグは保存されない" do
         tag = create(:tag)
-        tag.name = Faker::Lorem.characters(number: 6)
+        tag.name = Faker::Lorem.characters(number: 31)
         tag.valid?
         expect(tag.valid?).to eq false
       end

@@ -10,6 +10,7 @@ ja:
       article:
         title: 'タイトル'
         content: '内容'
+        Subcontent: "参考内容"
   date:
     abbr_day_names:
     - 日
