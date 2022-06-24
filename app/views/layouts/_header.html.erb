@@ -21,6 +21,8 @@
         <div class="notification ml-3">
           <% if unchecked_notifications.any? %>
             <%= link_to "通知来てるよ", notifications_path, class: "btn btn-success btn-sm" %>
+          <% else %>
+            <%= link_to "通知", notifications_path, class: "btn btn-secondary btn-sm" %>
           <% end %>
         </div>
       </div>
