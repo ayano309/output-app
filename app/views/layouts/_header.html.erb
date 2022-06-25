@@ -16,7 +16,8 @@
     <div class="container ml-3">
       <div class="row justify-content-start  d-flex">
         <div class="mr-3"><%= render 'searches/form' %></div>
-        <%=link_to "User一覧", accounts_path , class: "btn btn-secondary btn-sm align-items-center"%>
+        <%=link_to "記事一覧", articles_path , class: "btn btn-secondary btn-sm align-items-center"%>
+        <%=link_to "User一覧", accounts_path , class: "btn btn-secondary btn-sm align-items-center ml-1"%>
         <%=link_to "勉強会一覧", groups_path , class: "btn btn-secondary btn-sm  align-items-center ml-1"%>
         <div class="notification ml-3">
           <% if unchecked_notifications.any? %>

@@ -1,6 +1,6 @@
 <div class = "container">
   <%= render 'commons/tabs'%>
-  <div class="tag mt-5">
+  <div class="tag mt-5 d-flex flex-wrap">
     <% @tags.each do |tag| %>
       <li style="list-style: none;">
         <%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") ,class: "tag_name"%>
