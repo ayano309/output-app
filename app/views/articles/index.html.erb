@@ -1,5 +1,6 @@
 <div class = "container">
   <%= render 'commons/tabs'%>
+  <%= render 'sort'%>
   <div class="tag mt-5 d-flex flex-wrap">
     <% @tags.each do |tag| %>
       <li style="list-style: none;">
@@ -8,4 +9,5 @@
     <% end %>
   </div>
   <%= render 'commons/article',articles: @articles%>
+  <%= paginate @articles%>
 </div>

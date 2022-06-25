@@ -108,4 +108,19 @@ class Article < ApplicationRecord
     end
     notification.save if notification.valid?
   end
+
+  extend PageList
+  #並び替え
+  scope :sort_list, -> { 
+    {
+      "並び替え" => "", 
+      "古い順" => "updated_at asc", 
+      "新しい順" => "updated_at desc"
+    }
+  }
+  scope :sort_order, -> (order) { order(order) }
+  scope :sort_articles, -> (sort_order, page) {
+    sort_order(sort_order[:sort]).
+    display_list(page)
+  }
 end

@@ -3,14 +3,14 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   impressionist :actions=> [:show]
   def index
-    to  = Time.current.at_end_of_day
-    from  = (to - 6.day).at_beginning_of_day
-    @articles = Article.includes(:favorited_users).
-      sort {|a,b|
-        b.favorited_users.includes(:favorites).where(created_at: from...to).size <=>
-        a.favorited_users.includes(:favorites).where(created_at: from...to).size
-      }
+    if sort_params.present?
+      @sorted = params[:sort]
+      @articles = Article.sort_articles(sort_params, params[:page])
+    else
+      @articles = Article.display_list(params[:page])
+    end
     @tags = Tag.last(10)
+    @sort_list = Article.sort_list
   end
 
   def show
@@ -71,5 +71,9 @@ class ArticlesController < ApplicationController
 
   def set_article
       @article = Article.find(params[:id])
+  end
+
+  def sort_params
+    params.permit(:sort)
   end
 end
