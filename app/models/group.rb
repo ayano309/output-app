@@ -5,7 +5,7 @@ class Group < ApplicationRecord
 
   validates :name, presence: true, length: { in: 2..30 }
   validates :introduction, presence: true, length: { in: 2..100 }
-  
+
 #ActiveStrageの紐付け
   has_one_attached :image
 

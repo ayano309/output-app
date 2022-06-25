@@ -1,0 +1,10 @@
+<div class="mt-3">
+  <%= form_with url: articles_path, method: :get, local: true, class: "form-inline" do |f| %>
+    並び替え
+    <% if @sorted.present? %>
+      <%= f.select :sort, @sort_list, {selected: @sorted}, onChange: "javascript: this.form.submit();", class: "form-inline ml-2" %>
+    <% else %>
+      <%= f.select :sort, @sort_list, {}, onChange: "javascript: this.form.submit();", class: "form-inline ml-2" %>
+    <% end %>
+  <% end %>
+</div>

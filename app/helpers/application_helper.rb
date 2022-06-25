@@ -1,6 +1,6 @@
 module ApplicationHelper
-  require "redcarpet"
-  require "coderay"
+  require 'redcarpet'
+  require 'coderay'
 
   class HTMLwithCoderay < Redcarpet::Render::HTML
       def block_code(code, language)

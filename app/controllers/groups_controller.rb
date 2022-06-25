@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   before_action :correct_user, only:[:edit, :update]
 
   def index
-    @groups = Group.all
+    @groups = Group.preload(:owner, {image_attachment: :blob})
   end
 
   def show
@@ -13,7 +13,6 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
   end
-
 
   def create
     @group = Group.new(group_params)
@@ -29,11 +28,9 @@ class GroupsController < ApplicationController
     end
   end
 
-
   def edit
     @group = Group.find(params[:id])
   end
-
 
   def update
     @group = Group.find(params[:id])
@@ -54,8 +51,6 @@ class GroupsController < ApplicationController
     end
   end
 
-
-
   private
 
   def group_params
@@ -68,4 +63,4 @@ class GroupsController < ApplicationController
       redirect_to groups_path
     end
   end
-end	
+end
