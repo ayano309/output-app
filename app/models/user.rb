@@ -26,10 +26,9 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships, source: :follower
 
   #自分が作った通知(active_notifications)
-  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy
   #自分宛の通知(passive_notifications)
-  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
-
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   # フォローしたときの処理
   def follow!(user)
@@ -63,7 +62,7 @@ class User < ApplicationRecord
 
   #フォロー時の通知
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    temp = Notification.where(['visiter_id = ? and visited_id = ? and action = ? ',current_user.id, id, 'follow'])
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: id,
@@ -77,7 +76,7 @@ class User < ApplicationRecord
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.name = "guestuser"
+      user.name = 'guestuser'
     end
   end
 end

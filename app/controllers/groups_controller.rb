@@ -14,7 +14,6 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
-
   def create
     @group = Group.new(group_params)
     #groupの作成者のIDを代入する
@@ -29,11 +28,9 @@ class GroupsController < ApplicationController
     end
   end
 
-
   def edit
     @group = Group.find(params[:id])
   end
-
 
   def update
     @group = Group.find(params[:id])
@@ -54,8 +51,6 @@ class GroupsController < ApplicationController
     end
   end
 
-
-
   private
 
   def group_params
@@ -68,4 +63,4 @@ class GroupsController < ApplicationController
       redirect_to groups_path
     end
   end
-end	
+end

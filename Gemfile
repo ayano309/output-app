@@ -48,9 +48,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'spring'
-  gem 'dotenv-rails'
 end
 
 group :test do
@@ -62,10 +62,10 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'coderay'                # シンタックスハイライト対応
 gem 'devise'
 gem 'impressionist'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'simple_calendar', '~> 2.0'
-gem 'redcarpet', '~> 2.3.0'  # マークダウン形式での表示
-gem 'coderay'                # シンタックスハイライト対応
 gem 'kaminari'
+gem 'redcarpet', '~> 2.3.0'  # マークダウン形式での表示
+gem 'simple_calendar', '~> 2.0'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

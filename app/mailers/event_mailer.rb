@@ -4,7 +4,7 @@ class EventMailer < ApplicationMailer
     @group = event[:group]
     @title = event[:title]
     @body = event[:body]
-    
+
     @mail = EventMailer.new()
 
     mail(
@@ -24,5 +24,5 @@ class EventMailer < ApplicationMailer
       EventMailer.send_notification(member, event).deliver_now
     end
   end
-  
+
 end

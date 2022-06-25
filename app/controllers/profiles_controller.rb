@@ -34,8 +34,8 @@ class ProfilesController < ApplicationController
   end
   def ensure_guest_user
     @user = current_user
-    if @user.name == "guestuser"
+    if @user.name == 'guestuser'
       redirect_to profile_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
-  end  
+  end
 end

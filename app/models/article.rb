@@ -12,7 +12,7 @@ class Article < ApplicationRecord
   has_many :tags, through: :article_tags
 
   has_many :notifications, dependent: :destroy
-  
+
   validates :title, presence: true
   validates :title ,length: {minimum:2 ,maximum:50 }
   validates :title,format: { with: /\A(?!\@)/}
@@ -23,7 +23,6 @@ class Article < ApplicationRecord
   scope :created_this_week, -> { where(created_at: 6.day.ago.beginning_of_day..Time.zone.now.end_of_day) }
   # 前週
   scope :created_last_week, -> { where(created_at: 2.week.ago.beginning_of_day..1.week.ago.end_of_day) }
-
 
   def start_time
     created_at
@@ -57,12 +56,12 @@ class Article < ApplicationRecord
     old_tags = current_tags - savearticle_tags
     # 送信されてきたタグから現在存在するタグを除いたタグをnewとする
     new_tags = savearticle_tags - current_tags
-		
+
     # 古いタグを消す
     old_tags.each do |old_name|
       self.tags.delete Tag.find_by(name:old_name)
     end
-		
+
     # 新しいタグを保存
     new_tags.each do |new_name|
       article_tag = Tag.find_or_create_by(name:new_name)
@@ -77,7 +76,7 @@ class Article < ApplicationRecord
     notification = current_user.active_notifications.new(
       article_id: id,
       visited_id: user_id,
-      action: "like"
+      action: 'like'
     )
     notification.save if notification.valid?
   end
