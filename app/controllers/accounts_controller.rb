@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @users = User.all
+    @users = User.eager_load(profile: {avatar_attachment: :blob})
   end
   def show
     @user = User.find(params[:id])

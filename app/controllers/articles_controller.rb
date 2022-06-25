@@ -5,9 +5,9 @@ class ArticlesController < ApplicationController
   def index
     if sort_params.present?
       @sorted = params[:sort]
-      @articles = Article.sort_articles(sort_params, params[:page])
+      @articles = Article.preload(:user).sort_articles(sort_params, params[:page])
     else
-      @articles = Article.display_list(params[:page])
+      @articles = Article.preload(:user).display_list(params[:page])
     end
     @tags = Tag.last(10)
     @sort_list = Article.sort_list
