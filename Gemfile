@@ -51,6 +51,7 @@ group :development do
   gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'spring'
+  gem 'bullet'
 end
 
 group :test do
