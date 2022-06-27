@@ -30,6 +30,8 @@ class User < ApplicationRecord
   #自分宛の通知(passive_notifications)
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
+  extend PageList
+  
   # フォローしたときの処理
   def follow!(user)
     following_relationships.create!(following_id: user.id)
