@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   before_action :correct_user, only:[:edit, :update]
 
   def index
-    @groups = Group.preload(:owner, {image_attachment: :blob})
+    @groups = Group.preload(:owner, {image_attachment: :blob}).display_list(params[:page])
   end
 
   def show
