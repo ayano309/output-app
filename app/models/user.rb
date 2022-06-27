@@ -81,4 +81,9 @@ class User < ApplicationRecord
       user.name = 'guestuser'
     end
   end
+
+  #user検索
+  scope :search_information, -> (keyword) { 
+    where("name LIKE :keyword", keyword: "%#{keyword}%")
+  }
 end

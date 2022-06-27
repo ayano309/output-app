@@ -1,0 +1,8 @@
+<div class="container">
+  <%= form_with url: accounts_path, method: :get, local: true do |f| %>
+    <div class="d-flex flex-inline form-group">
+      <%= f.text_field :keyword, value: @keyword,placeholder: "User名検索", class: "form-controll ml-2 w-10" %>
+      <%= f.submit "検索", class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>
