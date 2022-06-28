@@ -4,7 +4,8 @@ class Article < ApplicationRecord
   has_one_attached :image
   has_rich_text :content
   has_many :favorites, dependent: :destroy
-  has_many :favorited_users, through: :favorites, source: :user
+  
+  has_many :bookmarks, dependent: :destroy
 
   has_many :comments, dependent: :destroy
 
@@ -39,6 +40,10 @@ class Article < ApplicationRecord
   #ユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
+  end
+
+  def bookmarked_by?(user)
+    bookmarks.exists?(user_id: user.id)
   end
 
   #検索

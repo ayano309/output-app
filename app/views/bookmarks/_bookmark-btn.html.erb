@@ -1,0 +1,11 @@
+<% if article.bookmarked_by?(current_user) %>
+  <%= link_to article_bookmarks_path(article), method: :delete , remote: true do %>
+    <i class="fas fa-bookmark fa-2x" aria-hidden="true"></i>
+    <%= article.bookmarks.count %>
+  <% end %>
+<% else %>
+  <%= link_to article_bookmarks_path(article), method: :post , remote: true do %>
+    <i class="far fa-bookmark fa-2x" aria-hidden="true"></i>
+    <%= article.bookmarks.count %> 
+  <% end %>
+<% end %>
