@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :articles do
     #resourceになることに注意！！！１人のユーザーが１つの投稿に１個のいいね
     resource :favorites, only: [:create, :destroy]
+    resource :bookmarks, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
 

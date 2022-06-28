@@ -42,6 +42,10 @@ class Article < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+  def bookmarked_by?(user)
+    bookmarks.exists?(user_id: user.id)
+  end
+
   #検索
   def self.search_for(content, method)
     if method == 'partial'
