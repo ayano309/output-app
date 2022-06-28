@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_13_080650) do
+ActiveRecord::Schema.define(version: 2022_06_28_115254) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -67,7 +67,17 @@ ActiveRecord::Schema.define(version: 2022_06_13_080650) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "start_time"
+    t.integer "status", default: 0, null: false
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_bookmarks_on_article_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "chats", force: :cascade do |t|
@@ -211,6 +221,8 @@ ActiveRecord::Schema.define(version: 2022_06_13_080650) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "article_tags", "articles"
   add_foreign_key "article_tags", "tags"
+  add_foreign_key "bookmarks", "articles"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "chats", "rooms"
   add_foreign_key "chats", "users"
   add_foreign_key "comments", "articles"
