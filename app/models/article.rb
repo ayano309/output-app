@@ -4,7 +4,8 @@ class Article < ApplicationRecord
   has_one_attached :image
   has_rich_text :content
   has_many :favorites, dependent: :destroy
-  has_many :favorited_users, through: :favorites, source: :user
+  
+  has_many :bookmarks, dependent: :destroy
 
   has_many :comments, dependent: :destroy
 
