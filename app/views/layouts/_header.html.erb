@@ -32,6 +32,7 @@
       <%= image_tag current_user.avatar_image, class: 'header_avatar dropbtn' %>
       <div class="dropdown-content">
         <%= link_to 'プロフィール', profile_path%>
+        <%= link_to 'ブックマーク', bookmarks_path%>
         <%= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }%>
       </div>
     </div>

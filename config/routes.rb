@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:show, :edit, :update]
+  #ブックマークした一覧
+  resources :bookmarks, only: [:index]
   resources :articles do
     #resourceになることに注意！！！１人のユーザーが１つの投稿に１個のいいね
     resource :favorites, only: [:create, :destroy]

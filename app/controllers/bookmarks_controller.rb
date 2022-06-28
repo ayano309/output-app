@@ -1,5 +1,10 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
+
+  def index
+    @articles = current_user.bookmarked_articles
+  end
+
   def create
     @article = Article.find(params[:article_id])
     @bookmark = current_user.bookmarks.new(article_id: @article.id)
