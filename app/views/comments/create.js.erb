@@ -1,3 +1,4 @@
 $("#article_<%= @article.id %> .comments-count").html("コメント数: <%= @article.comments.count %>");
 $(".article_comments").html("<%= j(render 'comments/index', article: @article) %>");
+$(".comment-count").html("<%= j(render 'comments/comment-count', article: @article) %>");
 $("#comment_comment").val("");

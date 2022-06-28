@@ -74,7 +74,7 @@
 
   <div>
     <h3 class="text-center my-5">コメント一覧</h3>
-    <p>コメント件数：<%= @article.comments.count %></p>
+    <p class="comment-count"><%=render "comments/comment-count", article: @article %></p>
     <table class="article_comments">
       <%= render 'comments/index', article: @article %>
     </table>
