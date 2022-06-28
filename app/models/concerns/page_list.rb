@@ -2,7 +2,7 @@ module PageList
 
   # 重複したscopeまとめる
 
-  PER = 2
+  PER = 10
 
   def display_list(page)
     page(page).per(PER)
