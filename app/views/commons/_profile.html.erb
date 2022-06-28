@@ -6,7 +6,7 @@
     <div class="profilePage_user_basicInfo">
       <div class="profilePage_user_name">
         <div class="profilePage_user_displayName">
-          <%= user.name %>
+          <%= user.name %>(Nickname：<%=user.profile&.nickname%>)
         </div>
         <div class="profilePage_user_actionButton">
           <% if user == current_user %>
@@ -28,6 +28,7 @@
         <% end %>
       </div>
       <div class="profilePage_user_introduction">
+        誕生日: <%= user.profile&.birthday %><br>
         <%= user.profile&.introduction %>
       </div>
     </div>
