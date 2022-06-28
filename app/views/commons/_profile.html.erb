@@ -61,5 +61,7 @@
 </div>
 
 
-
-<%= render "commons/article", articles: @articles %>
+<div class="container">
+  <%= render "commons/article", articles: @articles %>
+  <%= paginate @articles%>
+</div>

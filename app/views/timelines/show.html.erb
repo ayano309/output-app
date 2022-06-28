@@ -1,4 +1,5 @@
 <div class = "container">
   <%= render 'commons/tabs'%>
   <%= render 'commons/article',articles: @articles%>
+  <%= paginate @articles%>
 </div>
