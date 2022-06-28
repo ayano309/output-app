@@ -32,7 +32,7 @@
 
 # ER図
 
-![output_app ER図](https://user-images.githubusercontent.com/99533616/173549517-326e5cca-0294-4a26-a41a-828b7b3ab90c.jpeg)
+![output-app](https://user-images.githubusercontent.com/99533616/176195074-b4634bb7-9b6b-48e2-b1ab-10b091ffe784.jpg)
 
 
 # 使用技術
