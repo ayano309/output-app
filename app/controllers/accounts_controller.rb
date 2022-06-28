@@ -15,5 +15,6 @@ class AccountsController < ApplicationController
       if @user == current_user
         redirect_to profile_path
       end
+    @articles = @user.articles.display_list(params[:page])
   end
 end

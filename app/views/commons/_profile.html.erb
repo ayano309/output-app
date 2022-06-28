@@ -6,7 +6,7 @@
     <div class="profilePage_user_basicInfo">
       <div class="profilePage_user_name">
         <div class="profilePage_user_displayName">
-          <%= user.name %>
+          <%= user.name %>(Nickname：<%=user.profile&.nickname%>)
         </div>
         <div class="profilePage_user_actionButton">
           <% if user == current_user %>
@@ -28,6 +28,7 @@
         <% end %>
       </div>
       <div class="profilePage_user_introduction">
+        誕生日: <%= user.profile&.birthday %><br>
         <%= user.profile&.introduction %>
       </div>
     </div>
@@ -60,33 +61,7 @@
 </div>
 
 
-
-
-<div class = "container mt-3">
-  <div class = "row">
-    <div class = "col-md-8 offset-md-1">
-      <h2>記事一覧</h2>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-              <th>投稿者名</th>
-              <th>title</th>
-              <th></th>
-              <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% user.articles.each do |article| %>
-            <%= render 'commons/articles', article: article%>
-          <% end %>
-        </tbody>
-      </table>
-      <%= link_to new_article_path do %>
-        <div class="float_btn">
-          <i class="fa fa-plus"></i>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<div class="container">
+  <%= render "commons/article", articles: @articles %>
+  <%= paginate @articles%>
 </div>
-
