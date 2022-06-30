@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @articles = current_user.bookmarked_articles
+    @articles = current_user.bookmarked_articles.preload(:user)
   end
 
   def create
