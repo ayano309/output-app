@@ -60,6 +60,7 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -71,4 +72,3 @@ gem 'redcarpet', '~> 2.3.0'  # マークダウン形式での表示
 gem 'simple_calendar', '~> 2.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'enum_help'
-gem 'simplecov'
