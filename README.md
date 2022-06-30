@@ -64,6 +64,7 @@
 * gem 'redcarpet', '~> 2.3.0'  **マークダウン形式での表示**
 * gem 'coderay'                **シンタックスハイライト対応**
 * gem 'image_processing', '~> 1.2'
+* gem 'simplecov'
 
 ## その他
 * ActiveStrage
