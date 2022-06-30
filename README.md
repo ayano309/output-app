@@ -32,7 +32,8 @@
 
 # ER図
 
-![output-app](https://user-images.githubusercontent.com/99533616/176195074-b4634bb7-9b6b-48e2-b1ab-10b091ffe784.jpg)
+![out-put](https://user-images.githubusercontent.com/99533616/176590594-209dc8b1-dfbd-4601-8b7b-dc8d4c6b9ded.png)
+
 
 
 # 使用技術
