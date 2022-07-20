@@ -4,7 +4,7 @@ class Article < ApplicationRecord
   has_one_attached :image
   has_rich_text :content
   has_many :favorites, dependent: :destroy
-  
+
   has_many :bookmarks, dependent: :destroy
 
   has_many :comments, dependent: :destroy
@@ -77,14 +77,30 @@ class Article < ApplicationRecord
 
   #通知
   #自分が通知する(いいね)
-  def create_notification_by(current_user)
-    notification = current_user.active_notifications.new(
-      article_id: id,
-      visited_id: user_id,
-      action: 'like'
-    )
-    notification.save if notification.valid?
-  end
+  # def create_notification_by(current_user)
+  #   notification = current_user.active_notifications.new(
+  #     article_id: id,
+  #     visited_id: user_id,
+  #     action: 'like'
+  #   )
+  #   notification.save if notification.valid?
+  # end
+  def  create_notification_by(current_user)
+    favorite_exist = Notification.where('visiter_id = ? and visited_id = ? and article_id = ? and action = ? ', current_user.id, user.id, id, 'like') # いいねしているか検索
+      if favorite_exist.blank? # いいねしていない場合に通知を作成
+        notification = current_user.active_notifications.new(
+        article_id: id,
+        visited_id: user_id, # 通知相手に相手のidを指定
+        action: 'like', # helperにて使用
+        checked: false # defaultでfalse「未確認」を設定
+        )
+        # 自分の投稿に対するいいねは、通知済み
+        if notification.visiter_id == notification.visited_id
+          notification.checked = true
+        end
+        notification.save! if notification.valid?
+      end
+    end
 
   #自分が通知する(コメント)
   def create_notification_comment!(current_user, comment_id)
@@ -116,11 +132,11 @@ class Article < ApplicationRecord
 
   extend PageList
   #並び替え
-  scope :sort_list, -> { 
+  scope :sort_list, -> {
     {
-      "並び替え" => "", 
-      "古い順" => "updated_at asc", 
-      "新しい順" => "updated_at desc"
+      '並び替え' => '',
+      '古い順' => 'updated_at asc',
+      '新しい順' => 'updated_at desc'
     }
   }
   scope :sort_order, -> (order) { order(order) }
